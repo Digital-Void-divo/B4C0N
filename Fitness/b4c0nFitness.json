@@ -45,15 +45,7 @@
       },
       "goals": [],
       "stats": [],
-      "workout_log": [
-        {
-          "id": "2e035f2f-df8c-4bcd-a197-ebaabed385f1",
-          "logged_at": "2026-03-13T10:52:59.307824+00:00",
-          "category": "Cardio",
-          "workout": "Elliptical",
-          "details": "30 minutes"
-        }
-      ],
+      "workout_log": [],
       "history_notes": []
     }
   }
