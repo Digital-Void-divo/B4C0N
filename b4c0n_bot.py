@@ -1442,6 +1442,35 @@ class QuoteModal(discord.ui.Modal, title="Submit a Quote"):
         except Exception as e:
             await interaction.followup.send(f"❌ Error creating quote: {e}", ephemeral=True)
 
+FITNESS_COMMANDS = [
+    ('/b4c0nfitness',     'Open the fitness tracker hub — access all features from one place.'),
+    ('/setfitbaseline',   'Set your starting stats. **Required before using goals or stats.**'),
+    ('/setfitgoals',      'View, add, edit, or delete your fitness goals with target dates and milestones.'),
+    ('/currentfitstats',  'View your current stats or log an update. Automatically checks for goal completions and milestone hits.'),
+    ('/fithistory',       'Browse your weekly progress with stat updates, workouts, and notes. Navigate back week by week.'),
+    ('/fitworkoutlog',    'Log a new workout or browse and manage past entries.'),
+]
+
+
+def build_fitness_hub_embed() -> discord.Embed:
+    embed = discord.Embed(
+        title='🏋️ Fitness Tracker',
+        description=(
+            'Track your fitness goals, stats, workout history, and more.\n'
+            'All responses are **private to you** unless you choose to publish them.\n\n'
+            '**First time?** Start with `/setfitbaseline` to record your starting point.'
+        ),
+        color=discord.Color.orange(),
+    )
+    embed.add_field(
+        name='📋 Available Commands',
+        value='\n'.join(f'`{cmd}` — {desc}' for cmd, desc in FITNESS_COMMANDS),
+        inline=False,
+    )
+    embed.set_footer(text='Use the dropdown below or any slash command directly.')
+    return embed
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 #  BOT PANEL
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -1491,17 +1520,8 @@ class PanelButton(discord.ui.Button):
             except Exception:
                 user_data = None
 
-            embed = discord.Embed(
-                title='🏋️ Fitness Tracker',
-                description=(
-                    'Track your fitness goals, stats, workout history, and more.\n\n'
-                    '**First time?** Start with **Set Baseline** to record your starting point.\n'
-                    'All responses are private to you unless you choose to publish them.'
-                ),
-                color=discord.Color.orange(),
-            )
             await interaction.response.send_message(
-                embed=embed,
+                embed=build_fitness_hub_embed(),
                 view=FitnessHubView(user_data=user_data, member=interaction.user),
                 ephemeral=True,
             )
@@ -1568,17 +1588,8 @@ async def b4c0nfitness(interaction: discord.Interaction):
     except Exception:
         user_data = None
 
-    embed = discord.Embed(
-        title='🏋️ Fitness Tracker',
-        description=(
-            'Track your fitness goals, stats, workout history, and more.\n\n'
-            '**First time?** Start with **Set Baseline** to record your starting point.\n'
-            'All responses are private to you unless you choose to publish them.'
-        ),
-        color=discord.Color.orange(),
-    )
     await interaction.response.send_message(
-        embed=embed,
+        embed=build_fitness_hub_embed(),
         view=FitnessHubView(user_data=user_data, member=interaction.user),
         ephemeral=True,
     )
