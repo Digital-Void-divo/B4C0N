@@ -52,13 +52,6 @@
           "category": "Cardio",
           "workout": "Elliptical",
           "details": "30 minutes"
-        },
-        {
-          "id": "4a32ac4b-a7bf-4dae-b6d3-860f8fc0b5c0",
-          "logged_at": "2026-03-13T12:50:21.501214+00:00",
-          "category": "Strength",
-          "workout": "Chestpress",
-          "details": "3x10 rep"
         }
       ],
       "history_notes": []
