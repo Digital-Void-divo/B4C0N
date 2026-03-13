@@ -1,0 +1,28 @@
+{
+  "users": {
+    "204185815696277504": {
+      "meta": {
+        "username": "DiVo",
+        "is_public": true,
+        "unit_preference": "lbs",
+        "joined": "2026-03-13T10:27:17.669352+00:00"
+      },
+      "baseline": {
+        "set_at": "2026-03-13T10:27:17.669367+00:00",
+        "weight": 124.0,
+        "body_fat_pct": 124.0,
+        "neck": 124.0,
+        "chest": 124.0,
+        "waist": 124.0,
+        "resting_heart_rate": 124.0,
+        "bench": 124.0,
+        "cardio_duration": "124",
+        "notes": "124"
+      },
+      "goals": [],
+      "stats": [],
+      "workout_log": [],
+      "history_notes": []
+    }
+  }
+}
